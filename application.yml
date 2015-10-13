@@ -1,0 +1,171 @@
+# Common configuration that needs to be loaded for all config-clients, Override if needed
+ccp:
+  logging:
+    logInjectionEnabled: true
+    logInjectionKeywords:
+      - \\t
+#    mis:
+#      instancesInfo:
+#        - businessID: GBGCB
+#          logToDatabase: true
+#          databaseTableName: JFP_${ccp.logging.mis.instancesInfo[0].businessID}_MISLOG
+#          dbDataEncodingName: UTF-8
+##          dsUrl: jdbc:oracle:thin:@vm-9bef-c9e9.nam.nsroot.net:1522:cloudapp
+##          dsUsername: CITI_USER_RTCLOCAL79
+##          dsPassword: pwdforkol
+#      defaultDS: 
+#        url: jdbc:oracle:thin:@vm-9bef-c9e9.nam.nsroot.net:1522:cloudapp
+#        username: CITI_USER_RTCLOCAL79
+#        password: pwdforkol
+  logger: 
+    ids: 
+      appconfig:
+        application:
+          metadata:
+            vendor: CCP
+            product: ${spring.application.name}
+            csi: 165242
+            version: 1
+      emsconnector: 
+        communication: jms
+      freemarkerProperties: 
+        template_update_delay: 600000
+      idsProperties: 
+        event: 
+          format: SELF
+          max: 
+            cef: 
+              size: 4096
+        ids: 
+          logger: 
+            connector: 
+              bean: jfp.ids.emsconnector
+            handlers: 
+              bean: emptyHandlers
+            jfphttp: 
+              bean: 
+              options: 
+                bean: jfp.ids.http.options
+            jfpjms: 
+              bean: 
+            jsessionid: 
+              digest: 
+                algorithm: SHA-384
+              maxsize: 1029
+            soap: 
+              action: /EventManager/ReportEvents
+              version: 12
+        queue: 
+          maxqsize: 7500
+      jms: 
+        cacheConsumers: 
+        cacheProducers: 
+        clientID: 
+        connectionFactory: MSM_SSLQueueConnectionFactory
+        jmsPropertiesMap: 
+          SOAPAction: /Services/SecurityEventsLoggerService.serviceagent/PortTypeEndpoint1/reportEvents
+        jndiProperties: 
+          com: 
+            tibco: 
+              tibjms: 
+                naming: 
+                  security_protocol: ssl
+                  ssl_auth_only: enabled
+                  ssl_enable_verify_host: false
+                  ssl_expected_hostname: server
+                  ssl_identity: C:/Eclipse_Luna/workspace_JPP710/com.citigroup.165242.CCP.ConfigRepository/src/main/resources/JMS/JMS_Certs/ms_dev_usr.ca1.cert.p12
+                  ssl_password: msusr
+                  ssl_trace: true
+                  ssl_trusted_certs: C:/Eclipse_Luna/workspace_JPP710/com.citigroup.165242.CCP.ConfigRepository/src/main/resources/JMS/JMS_Certs/entrust.ca1.nonprod.root.cert.pem
+          java: 
+            naming: 
+              factory: 
+                initial: com.tibco.tibjms.naming.TibjmsInitialContextFactory
+                url: 
+                  pkgs: com.tibco.tibjms.naming
+              provider: 
+                url: "ssl://ebzap-dit3010.nam.nsroot.net:6343"
+              security: 
+                credentials: msusr
+                principal: ms_dev_usr
+        messageDeliveryMode: 
+        messagePriority: 
+        reconnectOnException: true
+        replyQueue: 
+        replyQueueName: 
+        requestQueue: citi.gcg.shared.na.sel.eventmanager.in
+        requestQueueName: 
+        serviceName: 
+        sessionCacheSize: 20
+        timeToLive: 
+        timeout: 5000
+      loggerImplementation: consoleConnector
+      responseCodeProperties: 
+        JFPDDOSFilter: 
+          responsecode: 
+            JSE414: 101
+      templateProperties: 
+        IE1: com.citigroup.ccp.logging.ids.formatter.JFPIDSMapper||event-type-6-template.ftl
+        IE6: com.citigroup.ccp.logging.ids.formatter.JFPIDSMapper||event-type-2-template.ftl
+
+com:
+ citigroup:
+  ccp:
+   logging:
+    esb:
+     enabled: false
+     logtype: AUDIT_6
+     jms:
+      cacheConsumers: 
+      cacheProducers: 
+      clientID: 
+      connectionFactory: APIGL_SSLQueueConnectionFactory
+      jmsPropertiesMap: 
+          SOAPAction: /Services/SecurityEventsLoggerService.serviceagent/PortTypeEndpoint1/reportEvents
+      jndiProperties: 
+          com: 
+            tibco: 
+              tibjms: 
+                naming: 
+                  security_protocol: ssl
+                  ssl_auth_only: enabled
+                  ssl_enable_verify_host: false
+                  ssl_expected_hostname: server
+                  ssl_identity: C:/Eclipse_Luna/workspace_JPP710/com.citigroup.165242.CCP.ConfigRepository/src/main/resources/JMS/JMS_Certs/apigl_dev_usr.ca1.cert.p12
+                  ssl_password: apiglusr
+                  ssl_trace: true
+                  ssl_trusted_certs: C:/Eclipse_Luna/workspace_JPP710/com.citigroup.165242.CCP.ConfigRepository/src/main/resources/JMS/JMS_Certs/apigl_dev_usr.ca1.cert.pem
+          java: 
+            naming: 
+              factory: 
+                initial: com.tibco.tibjms.naming.TibjmsInitialContextFactory
+                url: 
+                  pkgs: com.tibco.tibjms.naming
+              provider: 
+                url: "ssl://gtgtc-esbla02d.nam.nsroot.net:31243"
+              security: 
+                credentials: apiglusr
+                principal: apigl_dev_usr
+      messageDeliveryMode: 
+      messagePriority: 
+      reconnectOnException: true
+      replyQueue: 
+      replyQueueName: 
+      requestQueue: citi.gcg.gom.esb_169068.rg.ExceptionQ.3
+      requestQueueName: 
+      serviceName: 
+      sessionCacheSize: 20
+      timeToLive: 
+      timeout: 5000
+
+spring:
+ thymeleaf:
+  suffix: .xml
+  mode: XML
+  enabled: false
+        
+logging:
+  level:
+    ROOT: ERROR
+    com.citigroup.ccp: INFO
+    com.citigroup: INFO
