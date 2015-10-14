@@ -1,0 +1,17 @@
+application:
+  name: ${pom.name}
+  version: ${pom.version}
+message: ${my.filter.value}
+#server:
+#  port: 8902
+cmcontent:
+  supportedTags: link|menu|image|genericphrase|globalphrase|imagemap|jfplink|lightlink|profile|datetime|cmout|function|cmoption|cmlink|cmarea|cmset|cmurl|lastlogindate|rule|cmad|jfpif|rate|jfpelseif|jfpelse|mset|mout|mlink|jfpeach|jfpcsslink|jfpscript|jfpimagesrc
+locator:
+  host: localhost
+  port: 10334
+gemfire:
+  server: localhost
+  port: 40411
+content:
+  ipfilter:
+    allowed-ip-range: 10.61.8.255,::1,127.0.0.1

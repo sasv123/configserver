@@ -1,0 +1,25 @@
+application:
+  config:
+    externalPath: C:/Eclipse_Luna/workspace_JPP710/com.citigroup.165242.CCP.ConfigRepository/src/main/resources/rules
+    appName: mobileRules
+    
+config:
+  gemfire:
+    locators: localhost[10334],localhost[10335]
+    locator:
+      region: ConfigRegion	    
+    
+server:
+  port: 8887  
+
+eureka:
+  password: password
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}

@@ -1,0 +1,35 @@
+info:
+  component: Turbine 
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+server:
+  port: ${PORT:8989}
+
+management:
+  port: 8990
+
+PREFIX:
+
+logging:
+  level:
+    root: INFO
+    com.netflix.discovery: 'OFF'
+    # org.springframework.integration: DEBUG
+
+eureka:
+  password: password
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+      
+turbine:
+  aggregator:
+    clusterConfig: TBOA,SIGNON,TRANSFERSERVICE,ZUULSERVER
+  appConfig: tboa,signon,transferservice,zuulserver

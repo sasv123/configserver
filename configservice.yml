@@ -1,0 +1,53 @@
+server:
+  port: 8089
+  
+application:
+  config:
+    appName: mobileRules
+    
+config:
+  gemfire:
+    locators: localhost[10334],localhost[10335]
+    locator:
+      region: ConfigRegion
+
+eureka:
+  password: password
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 30
+
+metrics:
+    jmx.enabled: true
+    influxdb:
+        enabled: true
+        host: vm-a314-a759.nam.nsroot.net
+        port: 8086
+        username: root
+        password: root
+        database: metrics
+    graphite:
+        enabled: false
+        host: localhost
+        port: 2003
+        prefix: jhipster
+
+    
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false

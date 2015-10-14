@@ -1,0 +1,55 @@
+content:
+  mapping:
+  - screenId: addPayee
+    appId: JPSCBOL
+    value: JPSCBOL/category/Promotions,JPSCBOL/category/Promotions1,JPSCBOL/promo/cb_latte_apply,JPSCBOL/promo_details/cb_latte_apply,JPSCBOL/promo_sub_details/cb_latte_apply,JPSCBOL/cmlink/liPromotionsDet,JPSCBOL/cmlink/liPromotionsSubDet,JPSCBOL/copy/tboa-confirmation_SampleAccName,JPSCBOL/copy/tboa-confirmation_SecOption,JPSCBOL/copy/tboa-confirmation_USD,JPSCBOL/copy/tboa_input_AccDetails,JPSCBOL/copy/tboa_input_AddDest,JPSCBOL/copy/tboa_input_AddSource,JPSCBOL/copy/tboa_input_Desc,JPSCBOL/copy/tboa_input_Disclosure,JPSCBOL/copy/tboa_input_LearnMore,JPSCBOL/copy/tboa_input_Next,JPSCBOL/copy/tboa_input_Transfer_Text,JPSCBOL/copy/tboa_recap_AddInfo,JPSCBOL/copy/tboa_recap_Confirmation,JPSCBOL/copy/tboa_recap_Disclosure,JPSCBOL/copy/tboa_recap_FXDesc,JPSCBOL/copy/tboa_recap_From,JPSCBOL/copy/tboa_recap_MChanges,JPSCBOL/copy/tboa_recap_ProvideDetails,JPSCBOL/copy/tboa_recap_ReviewTransfer,JPSCBOL/copy/tboa_recap_TermCondition,JPSCBOL/copy/tboa_recap_To,JPSCBOL/copy/tboa_recap_TransDetails,JPSCBOL/copy/tboa_recap_cancel,JPSCBOL/copy/tboa_recap_confirm,JPSCBOL/copy/tboa_recap_verify
+  - screenId: test
+    appId: JPSCBOL
+    value: JPSCBOL/test/Promotions,JPSCBOL/test/cb_latte_apply,JPSCBOL/promo_details/cb_latte_apply,JPSCBOL/promo_sub_details/cb_latte_apply,JPSCBOL/cmlink/liPromotionsDet,JPSCBOL/cmlink/liPromotionsSubDet,JPSCBOL/copy/tboa-confirmation_SampleAccName,JPSCBOL/copy/tboa-confirmation_SecOption,JPSCBOL/copy/tboa-confirmation_USD,JPSCBOL/copy/tboa_input_AccDetails,JPSCBOL/copy/tboa_input_AddDest,JPSCBOL/copy/tboa_input_AddSource,JPSCBOL/copy/tboa_input_Desc,JPSCBOL/copy/tboa_input_Disclosure,JPSCBOL/copy/tboa_input_LearnMore,JPSCBOL/copy/tboa_input_Next,JPSCBOL/copy/tboa_input_Transfer_Text,JPSCBOL/copy/tboa_recap_AddInfo,JPSCBOL/copy/tboa_recap_Confirmation,JPSCBOL/copy/tboa_recap_Disclosure,JPSCBOL/copy/tboa_recap_FXDesc,JPSCBOL/copy/tboa_recap_From,JPSCBOL/copy/tboa_recap_MChanges,JPSCBOL/copy/tboa_recap_ProvideDetails,JPSCBOL/copy/tboa_recap_ReviewTransfer,JPSCBOL/copy/tboa_recap_TermCondition,JPSCBOL/copy/tboa_recap_To,JPSCBOL/copy/tboa_recap_TransDetails,JPSCBOL/copy/tboa_recap_cancel,JPSCBOL/copy/tboa_recap_confirm,JPSCBOL/copy/tboa_recap_verify
+  - screenId: test1
+    appId: app1
+    mappingData:
+    - JPSCBOL/test/Promotions
+    - JPSCBOL/test/cb_latte_apply
+  - screenId: test2
+    appId: app2
+    mappingData:
+    - appId: app2
+      contentType: contentType
+      contentId: content_id
+  - screenId: test3
+    appId: app3
+    mappingData: [{appId: app2, contentType: contentType, contentId: content_id}]
+  - screenId: test4
+    appId: app4
+    mappingData: 
+    -  {appId: app2, contentType: contentType, contentId: content_id}
+    -  {appId: app3, contentType: contentType, contentId: content_id}
+info:
+  appName: Content Service
+gemfire:
+  locators:
+  - hostname: localhost
+    port: 10334
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+  application:
+    name: contentservice
+  cloud:
+    discovery:
+      enabled: true
+#server:
+#  port: 8901
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+    metadataMap:
+      password: ${security.user.password:password}
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/

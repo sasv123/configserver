@@ -1,0 +1,50 @@
+zuul:
+  routes:
+    tboa:
+      path: /GBGCB/pnt/tboa/**
+      stripPrefix: false
+    signon:
+      path: /GBGCB/JSO/**
+      stripPrefix: false
+    ms:
+      path: /app/**
+      stripPrefix: true
+    contentservice:
+      path: /content/**
+      stripPrefix: false
+    securityLogin:
+      path: /security/login/**
+      url: http://gpd-653-fc88.nam.nsroot.net:14081/security/login
+    securityLogout:
+      path: /security/logout/**
+      url: http://gpd-653-fc88.nam.nsroot.net:14081/security/logout
+    accounts:
+      path: /accounts/**
+      url: http://gpd-653-fc88.nam.nsroot.net:14081/accounts/
+    relatedAccountsCloakedAccountNumber:
+      path: /accounts/relatedAccounts/cloakedAccountNumber/**
+      url: http://gpd-653-fc88.nam.nsroot.net:14081/accounts/relatedAccounts/cloakedAccountNumber/
+    transferFxAndFee:
+      path: /transfers/fxAndFee/**
+      url: http://gpd-653-fc88.nam.nsroot.net:14081/transfers/fxAndFee
+    transfersInternal:
+      path: /transfers/internal/**
+      url: http://gpd-653-fc88.nam.nsroot.net:14081/transfers/internal
+                  
+tboa:
+  ribbon:
+    ServerListRefreshInterval: 1000
+    ConnectTimeout: 20000
+    ReadTimeout: 20000
+    
+signon:
+  ribbon:
+    ServerListRefreshInterval: 1000
+    ConnectTimeout: 20000
+    ReadTimeout: 20000
+
+ms:
+  ribbon:
+    ServerListRefreshInterval: 1000
+    ConnectTimeout: 20000
+    ReadTimeout: 20000

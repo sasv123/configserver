@@ -1,0 +1,8 @@
+signon:
+  ribbon:
+    ServerListRefreshInterval: 1000
+    ConnectTimeout: 5000
+    ReadTimeout: 5000
+    
+server:
+  port: 8083    

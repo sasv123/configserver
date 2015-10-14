@@ -1,0 +1,58 @@
+info:
+  component: CCS services
+  
+server:
+  port: 8086
+  
+eureka:
+  password: password
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled:
+      false
+      
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+  threadpool:
+    default:
+      coreSize: 40
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+ccp:
+  gemfire:
+    sc:
+      locator: localhost[10334]
+    session:
+      locator: localhost[10334]
+      listeners: com.citigroup.ccp.session.listener.SessionListener
+      strategy: header

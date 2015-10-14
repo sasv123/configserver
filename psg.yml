@@ -1,0 +1,86 @@
+info:
+  component: Zuul Server
+  
+server:
+  port: 8085  
+  
+eureka:
+  password: password
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+
+zuul:
+  routes:
+    ccs1:
+      path: /security/e2eKey
+      serviceId: ccs
+      stripPrefix: false
+    ccs2:
+      path: /private/**
+      serviceId: ccs
+      stripPrefix: false
+    mfa1:
+      path: /auth/mfa/**
+      serviceId: mfa
+      stripPrefix: false
+    mfa2:
+      path: /mfa/**
+      serviceId: mfa
+      stripPrefix: false
+    configservice:
+      path: /config/**
+      stripPrefix: false
+
+ccs:
+  ribbon:
+    ServerListRefreshInterval: 1000
+    ConnectTimeout: 20000
+    ReadTimeout: 20000 
+
+mfa:
+  ribbon:
+    ServerListRefreshInterval: 1000
+    ConnectTimeout: 20000
+    ReadTimeout: 20000      
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled:
+      false
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+  threadpool:
+    default:
+      coreSize: 40
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+#PSG CFI configuration
+cfi:
+  validateFlowConfig: false
+  enabled: false
+  refreshToggle: 0 # Need to flip this between 0 & 1 when a change in cfi json configuration is done to do runtime refresh of cfi configuration.  
+  cfiConfigList: 

@@ -1,0 +1,45 @@
+---
+  otp: 
+    otpConfigurations: 
+      - 
+        entryParam: 
+          countryCode: 
+            - "AU"
+          businessCode: 
+            - "GCB"
+          channelId: 
+            - "HBK"
+        otpConfig: 
+          modeAllowed: 
+            - "SMS"
+
+#default configurations of multiple options
+# ---
+  # otp: 
+    # otpConfigurations: 
+      # - 
+        # entryParam: 
+          # countryCode: 
+            # - "AU"
+          # businessCode: 
+            # - "GCB"
+          # channelId: 
+            # - "HBK"
+        # otpConfig: 
+          # ModeAllowed: 
+            # - "SMS"
+      # - 
+        # entryParam: 
+          # countryCode: 
+            # - "AU"
+            # - "IN"
+          # businessCode: 
+            # - "GCB"
+            # - "GBB"
+          # channelId: 
+            # - "HBK"
+            # - "MB"
+        # otpConfig: 
+          # ModeAllowed: 
+            # - "SMS"
+            # - "HW"

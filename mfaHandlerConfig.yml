@@ -1,0 +1,11 @@
+---
+  mfa: 
+    mfaMechanisms: 
+      - 
+        api: "/mfa/startOTP"
+        mfaController: "com.citigroup.digital.ccp.mfa.otp.controller.OTPController"
+        mfaType: "rba"
+      - 
+        api: "/mfa/startOTP"
+        mfaController: "com.citigroup.digital.ccp.mfa.otp.controller.OTPController"
+        mfaType: "otp"
