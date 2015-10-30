@@ -14,8 +14,8 @@ eureka:
   password: ${SECURITY_USER_PASSWORD:password}
   instance:
    leaseRenewalIntervalInSeconds: 4
-  enableSelfPreservation: false
-  renewalPercentThreshold: 5
+   enableSelfPreservation: false
+   renewalPercentThreshold: .05
     
 ---     
 spring:
