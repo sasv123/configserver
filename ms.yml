@@ -2,7 +2,7 @@ info:
   component: MicroService Customer Application
   
 server:
-  port: 8081  
+  port: 8080  
   
 eureka:
   password: password
