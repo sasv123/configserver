@@ -11,7 +11,7 @@ eureka:
     fetchRegistry: false
   server:
     waitTimeInMsWhenSyncEmpty: 0
-    enableSelfPreservation: true
+    enableSelfPreservation: false
     renewalPercentThreshold: .05
     renewalThresholdUpdateIntervalMs: 2000
     evictionIntervalTimerInMs: 3000
