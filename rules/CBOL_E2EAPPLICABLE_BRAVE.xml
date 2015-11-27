@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app-config id="CBOL_E2EAPPLICABLE_BRAVE">
+
+<rule-setting>
+
+	<rule name="GMobIsE2EEncryptionApplicable">
+		<ruledata isE2EEncryptionApplicable="true" />
+	</rule>
+
+</rule-setting>	
+	
+</app-config>

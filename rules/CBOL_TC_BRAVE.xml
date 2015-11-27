@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app-config id="CBOL_TC_BRAVE">
+
+<rule-setting>
+	<rule name="GMobIOsLiteTnC">
+		<ruledata isPrivacyFromHtml="true" isTnCFromHtml="true" />
+	</rule>
+	
+	<rule name="GMobTandCAcceptance">
+		<ruledata appLanch="0" isAnchored="1" mAndUpgrade="0" tAndCChange="1" />
+	</rule>
+	
+	<rule name="GMobTandCFlowType">
+		<ruledata isThirdPartyTandC="0" linkOption="1" preSignonOption="1" preSignonTnCIsThin="1" privacyPolicy="1" siteTandCOption="1" />
+	</rule>
+
+</rule-setting>
+	
+</app-config>

@@ -42,9 +42,9 @@ ccp.security.auth.policy_file_target_path=
 ccp.security.auth.config_file_target_path=
 ccp.profile.policyfile.directory=C:/db/json
 
-ccp.security.api.loginAPIs.locallogin.url=/app/login
-ccp.security.api.loginAPIs.locallogin.defaultRole=CUSTOMER
-ccp.security.api.loginAPIs.locallogin.httpMethods=POST,GET
+#ccp.security.api.loginAPIs.locallogin.url=/app/login
+#ccp.security.api.loginAPIs.locallogin.defaultRole=CUSTOMER
+#ccp.security.api.loginAPIs.locallogin.httpMethods=POST,GET
 
 ccp.security.api.logoutAPIs.locallogin.url=/app/logout
 ccp.security.api.logoutAPIs.locallogin.httpMethods=DELETE
@@ -53,5 +53,5 @@ ccp.security.api.sessionExclusionAPIs.demo.url=/app/contentService
 ccp.security.api.sessionExclusionAPIs.demo.httpMethods=GET
 
 
-#ccp.security.api.sessionExclusionAPIs.productcodes.url=/app/login
-#ccp.security.api.sessionExclusionAPIs.productcodes.httpMethods=POST
+ccp.security.api.sessionExclusionAPIs.productcodes.url=/app/login
+ccp.security.api.sessionExclusionAPIs.productcodes.httpMethods=POST

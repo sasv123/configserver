@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app-config id="CBOL_APP_RULE">
+
+<rule-setting>
+	<rule name="CBOL_APP_RULE">
+		<ruledata customerTimeOutDuration="300" sneakPeakTimeOutDuration="3600" glancerefreshtime="null" />
+	</rule>
+</rule-setting>
+</app-config>

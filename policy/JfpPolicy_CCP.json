@@ -1,0 +1,40 @@
+{
+  "accessPolicies":
+	[
+		{
+			"api": [ 
+					{"url":"/security/*"},
+					{"url":"/private/auth", "httpMethod":"POST"},
+					{"url":"/private/auth/federation", "httpMethod":"POST"}				
+				
+			],
+			"allowedRoles": [
+				"VISITOR"
+			]
+		},
+		{
+			"api": [
+          			{"url":"/auth/mfa/*"},
+          			{"url":"/security/*"},
+          			{"url":"/mfa/handleMfa", "httpMethod":"POST"},
+					{"url":"/mfa/resumeFlow", "httpMethod":"POST"},
+          			{"url":"/private/security/*"},
+		          	{"url":"/private/customers/registrations/federation","httpMethod":"POST"},
+		          	{"url":"/private/customers/registrations/federation/*","httpMethod":"DELETE"}
+			],
+			"allowedRoles": [
+				"CUSTOMER"
+			]
+		},		
+		{
+			"unhandled":
+			{
+				"policyViolationObject":
+				{
+					"code": "unauthErrorPage",
+					"details": "Undefined Policy"
+				}
+			}
+		}
+    ]
+}

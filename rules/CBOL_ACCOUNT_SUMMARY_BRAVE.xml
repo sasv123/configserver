@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app-config id="CBOL_ACCOUNT_SUMMARY_BRAVE">
+
+	<rule-setting>
+
+		<rule name="GMobAccountSummaryBalanceDisplay_categoryCode_1">
+			<ruledata count="2"  primaryBalanceType="" secondaryBalanceType="" />
+		</rule>
+		
+		<rule name="GMobAccountSummaryBalanceDisplay_categoryCode_2">
+			<ruledata count="2"  primaryBalanceType="" secondaryBalanceType="" />
+		</rule>
+		
+		<rule name="GMobAccountSummaryBalanceDisplay_categoryCode_3">
+			<ruledata count="2"  primaryBalanceType="" secondaryBalanceType="" />
+		</rule>
+		
+		<rule name="GMobAccountSummaryBalanceDisplay_categoryCode_4">
+			<ruledata count="2"  primaryBalanceType="" secondaryBalanceType="" />
+		</rule>
+		
+		<rule name="GMobAccountSummaryBalanceDisplay_categoryCode_5">
+			<ruledata count="2"  primaryBalanceType="" secondaryBalanceType="" />
+		</rule>
+		
+		<rule name="GMobAccountSummaryBalanceDisplay_categoryCode_6">
+			<ruledata count="2"  primaryBalanceType="" secondaryBalanceType="" />
+		</rule>
+		
+	</rule-setting>	
+
+</app-config>

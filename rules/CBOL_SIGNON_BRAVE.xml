@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app-config id="CBOL_SIGNON_BRAVE">
+
+<rule-setting>
+
+	<rule name="GMobPasswordValidation">
+		<ruledata isValidationReq="true" maxCharacterLength="50" minCharacterLength="5" validCharacters="[a-z|A-Z|0-9|_]" />
+	</rule>
+	
+	<rule name="GMobSignonNavigation">
+		<ruledata changeLanguageNavigation="false" forgotCredentialExternalLink="true" forgotCredentialNavigation="true" inAppRegistrationExternalLink="false" isSpeedBump="true" promotionalVideo="true" registrationNavigation="true" />
+	</rule>
+	
+	<rule name="GMobUserIDMasking">
+		<ruledata uidFirst1="1" uidFirst2="2" uidIsMasking="true" uidLast1="1" uidLast2="2" uidMaskingCharacter="•" uidMaxCharacterLength1="6" uidMaxCharacterLength2="50" uidMinCharacterLength1="3" uidMinCharacterLength2="3" />
+	</rule>
+	
+	<rule name="GMobUserIDValidation">
+		<ruledata isValidationReq="true" maxCharacterLength="50" minCharacterLength="3" validCharacters="[a-z|A-Z|0-9|_|.|@]" />
+	</rule>
+
+</rule-setting>	
+	
+</app-config>

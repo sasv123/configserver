@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app-config id="CBOL_CONTACTUS_BRAVE">
+
+<rule-setting>
+
+	<rule name="GMobContactUs">
+		<ruledata showLocation="true" />
+	</rule>
+	
+	<rule name="GMobEmailOption">
+		<ruledata isCallRequired="true" isEmailRequired="false" />
+	</rule>
+
+</rule-setting>	
+	
+</app-config>

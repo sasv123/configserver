@@ -78,7 +78,7 @@ ccp.security.egress.groups.default.CSP.contentType=.*/.*
 ccp.security.egress.groups.default.CSP.pattern=\\b.*\\b
 
 # Start of CSRF Configuration Default
-ccp.security.csrf.enabled.default=false
+ccp.security.csrf.enabled.default=true
 # End of CSRF Configuration Default
 
 # Start of XSS Configurations Default

@@ -8,7 +8,7 @@ zuul:
       stripPrefix: false
     ms:
       path: /app/**
-      url: http://localhost:8080/
+      url: http://localhost:8083/
       stripPrefix: true
     contentservice:
       path: /content/**

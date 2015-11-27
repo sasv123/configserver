@@ -11,16 +11,15 @@ eureka:
     fetchRegistry: false
   server:
     waitTimeInMsWhenSyncEmpty: 0
-    enableSelfPreservation: false
-    renewalThresholdUpdateIntervalMs: 2000
-    evictionIntervalTimerInMs: 10000
   password: ${SECURITY_USER_PASSWORD:password}
-  instance:
-   leaseRenewalIntervalInSeconds: 4
-   
+    
 ---     
 spring:
-  profiles: cloud # connect to remote peer  
+  profiles: cloud1 # connect to remote peer  
+
+server:
+  port: 9898
+  
 eureka:
   instance:
     hostname: ${VCAP_APP_HOST:test}
@@ -29,7 +28,27 @@ eureka:
     config:
       uri: ${vcap.services.${PREFIX:}configserver.credentials.uri:http://user:password@localhost:8888}
   client:
-    registerWithEureka: true
+    registerWithEureka: false
     fetchRegistry: true
     serviceUrl:
-      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:9899}/eureka/
+ 
+---
+spring:
+  profiles: cloud2 # connect to remote peer  
+
+server:
+  port: 9899
+  
+eureka:
+  instance:
+    hostname: ${VCAP_APP_HOST:test}
+  password: ${SECURITY_USER_PASSWORD:password}
+  cloud:
+    config:
+      uri: ${vcap.services.${PREFIX:}configserver.credentials.uri:http://user:password@localhost:8888}
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:9898}/eureka/

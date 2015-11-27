@@ -1,4 +1,4 @@
 gemfire.locators[0].hostname=localhost
 gemfire.locators[0].port=10334
-static.content.json.path=C:\\scm\\
+static.content.json.path=staticfiles\\
 #server.port=8903

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app-config id="CBOL_REFRESH">
+
+<rule-setting>
+
+	<rule name="GMobSessionTimesValue">
+		<ruledata glanceRefresh="600" ruleRefresh="error" />
+	</rule>
+
+</rule-setting>
+	
+</app-config>

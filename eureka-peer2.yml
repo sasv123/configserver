@@ -1,0 +1,32 @@
+security:
+  user:
+    password: ${eureka.password} # Don't use a default password in a real app 
+    
+server:
+  port: 9899
+    
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:9898}/eureka/
+    fetchRegistry: true
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  password: ${SECURITY_USER_PASSWORD:password}
+    
+---     
+spring:
+  profiles: cloud # connect to remote peer  
+eureka:
+  instance:
+    hostname: ${VCAP_APP_HOST:test}
+  password: ${SECURITY_USER_PASSWORD:password}
+  cloud:
+    config:
+      uri: ${vcap.services.${PREFIX:}configserver.credentials.uri:http://user:password@localhost:8888}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:9898}/eureka/

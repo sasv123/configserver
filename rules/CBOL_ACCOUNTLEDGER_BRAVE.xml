@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app-config id="CBOL_ACCOUNTLEDGER_BRAVE">
+
+<rule-setting>
+
+	<rule name="GMobAccountDetailAlertsDisplay">
+		<ruledata isRequired="false" />
+	</rule>
+	
+	<rule name="GMobDateFormatter">
+		<ruledata incomingDateFormat="yyyyMMdd" outgoingDateFormat="MM/dd/yyyy" transDateFormat="MMM dd" />
+	</rule>
+	
+	<rule name="GMobMaxTransactionForADA">
+		<ruledata isFutureEnabled="false" isl3Supported="true" maxFutureTrans="20"  maxSneakPeekTrans="15" maxTrans="150" />
+	</rule>
+	
+	<rule name="GMobPendingTransactionsNotifier">
+		<ruledata isSupported="true" />
+	</rule>
+	
+	<rule name="GMobSingleAccountEligibilty">
+		<ruledata isDeepDropEligible="true" />
+	</rule>
+	
+</rule-setting>	
+
+</app-config>

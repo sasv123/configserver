@@ -1,0 +1,45 @@
+{
+    "accessPolicies": 
+	[
+		{
+			"api": [
+					{"url":"/GBGCB/JSO/login", "httpMethod":"Post,delete"},
+					{"url":"/GBGCB/JSO/logout", "httpMethod":"Post,delete"},
+					{"url":"/GBGCB/pnt/tboa/*", "httpMethod":"Post,delete"},
+					{"url":"/app/login"}
+
+			],
+			"allowedRoles": [
+				"VISITOR"
+			]
+		},
+		
+		{
+			"api": [
+					{"url":"/app/customer", "httpMethod":"Post,get"},
+					{"url":"/app/generateotp", "httpMethod":"Post,get"},
+					{"url":"/app/matchotp", "httpMethod":"Post,get"},
+					{"url":"/app/logout"}
+			],
+			
+			"allowedRoles": [
+				"CUSTOMER"
+			]
+		},
+		
+		{
+			"api": [
+					{"url":"/app/restricted"}
+									
+			],
+			
+			"allowedRoles": [
+				"CUSTOMER"
+			],
+			
+			"requiredMFA": "otp",
+			"mfaScope": "session"
+
+		}                              
+    ]
+}
