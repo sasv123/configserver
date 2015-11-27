@@ -90,4 +90,4 @@ com:
    ccp:
      logging:
        esb:
-         enabled: true
+         enabled: false
