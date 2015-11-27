@@ -1,0 +1,60 @@
+{
+    "accessPolicies":
+        [
+                {
+                        "api": [
+                                        {"url":"/GBGCB/JSO/login", "httpMethod":"Post,delete"},
+                                        {"url":"/app/logout", "httpMethod":"put"},
+                                        {"url":"/app/login","httpMethod":"Post,delete"},
+					{"url":"/security/e2eKey","httpMethod":"Post,GET,delete"},
+					{"url":"/private/auth","httpMethod":"Post,GET,delete"}
+
+
+                        ],
+                        "allowedRoles": [
+                                "VISITOR"
+                        ]
+                },
+		{
+                        "api": [
+                                        {"url":"/app/customer", "httpMethod":"Post,get"},
+                                        {"url":"/app/generateotp", "httpMethod":"Post,get"},
+                                        {"url":"/mfa/handleMfa"},
+                                        {"url":"/auth/mfa/otp"},
+                                        {"url":"/ccs/e2eData"},
+					{"url":"/app/validateotp"}
+					
+                        ],
+
+                        "allowedRoles": [
+                                "CUSTOMER"
+                        ]
+                },
+
+                {
+                        "api": [
+                                        {"url":"/app/restricted"}
+
+                        ],
+
+                        "allowedRoles": [
+                                "CUSTOMER"
+                        ],
+
+                        "requiredMFA": "otp",
+                        "mfaScope": "session"
+
+                },
+
+                {
+                        "unhandled":
+                        {
+                                "policyViolationObject":
+                                {
+                                        "code": "unauthErrorPage",
+                                        "details": "Undefined Policy"
+                                }
+                        }
+                }
+    ]
+}
