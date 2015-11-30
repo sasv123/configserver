@@ -6,6 +6,7 @@
                                         {"url":"/GBGCB/JSO/login", "httpMethod":"Post,delete"},
                                         {"url":"/app/logout", "httpMethod":"put"},
                                         {"url":"/app/login","httpMethod":"Post,delete"},
+                                        {"url":"/app/login1","httpMethod":"Post,delete"},
 					{"url":"/security/e2eKey","httpMethod":"Post,GET,delete"},
 					{"url":"/private/auth","httpMethod":"Post,GET,delete"},
 					{"url":"/priv/auth1","httpMethod":"Post,GET,delete"}
