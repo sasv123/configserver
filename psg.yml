@@ -91,3 +91,7 @@ com:
      logging:
        esb:
          enabled: false
+ccp:
+ test:
+    refresh:
+      git: enbales
