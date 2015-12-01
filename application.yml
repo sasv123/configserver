@@ -125,4 +125,47 @@ com:
   ccp:
    logging:
     esb:
-      logtype: AUDIT_6
+     enabled: false
+     logtype: AUDIT_6
+     jms:
+      cacheConsumers: 
+      cacheProducers: 
+      clientID: 
+      connectionFactory: APIGL_SSLQueueConnectionFactory
+      jmsPropertiesMap: 
+          SOAPAction: /Services/SecurityEventsLoggerService.serviceagent/PortTypeEndpoint1/reportEvents
+      jndiProperties: 
+          com: 
+            tibco: 
+              tibjms: 
+                naming: 
+                  security_protocol: ssl
+                  ssl_auth_only: enabled
+                  ssl_enable_verify_host: false
+                  ssl_expected_hostname: server
+                  ssl_identity: C:/ConfigRepo/JMS/JMS_Certs/apigl_dev_usr.ca1.cert.p12
+                  ssl_password: apiglusr
+                  ssl_trace: true
+                  ssl_trusted_certs: C:/ConfigRepo/JMS/JMS_Certs/apigl_dev_usr.ca1.cert.pem
+          java: 
+            naming: 
+              factory: 
+                initial: com.tibco.tibjms.naming.TibjmsInitialContextFactory
+                url: 
+                  pkgs: com.tibco.tibjms.naming
+              provider: 
+                url: "ssl://gtgtc-esbla02d.nam.nsroot.net:31243"
+              security: 
+                credentials: apiglusr
+                principal: apigl_dev_usr
+      messageDeliveryMode: 
+      messagePriority: 
+      reconnectOnException: true
+      replyQueue: 
+      replyQueueName: 
+      requestQueue: citi.gcg.gom.esb_169068.rg.JavaLogQ.3
+      requestQueueName: 
+      serviceName: 
+      sessionCacheSize: 20
+      timeToLive: 
+      timeout: 5000
