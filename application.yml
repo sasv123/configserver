@@ -119,3 +119,10 @@ logging:
     ROOT: INFO
     com.citigroup.ccp: DEBUG
     com.citigroup: DEBUG
+
+com:
+ citigroup:
+  ccp:
+   logging:
+    esb:
+      logtype: AUDIT_6
