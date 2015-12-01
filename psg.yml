@@ -95,3 +95,11 @@ ccp:
  test:
     refresh:
       git: lambda
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
