@@ -101,7 +101,7 @@ endpoints:
     enabled: true
   shutdown:
     enabled: true
-  refresh
+  refresh:
     enabled: true
   health:
     sensitive: false
