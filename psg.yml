@@ -90,7 +90,7 @@ com:
    ccp:
      logging:
        esb:
-         enabled: false
+         enabled: true
 ccp:
  test:
     refresh:
