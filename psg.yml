@@ -96,12 +96,4 @@ ccp:
     refresh:
       git: lambda
 
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  refresh:
-    enabled: true
-  health:
-    sensitive: false
+
