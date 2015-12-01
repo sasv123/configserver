@@ -166,6 +166,6 @@ spring:
         
 logging:
   level:
-    ROOT: DEBUG
+    ROOT: INFO
     com.citigroup.ccp: DEBUG
     com.citigroup: DEBUG
